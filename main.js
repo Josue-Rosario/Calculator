@@ -64,10 +64,8 @@ class Calculator {
   updateDisplay() {
     this.currentOperandTextElement.innerText = this.getDisplayNumber(
       this.currentOperand
-    );
-    if (this.operation != null) {
-      this.previousOperandTextElement.innerText =
-        "${this.getDisplayNumber(this.previousOperand)} ${this.operation}";}
+    )
+   
         
 
 const numberButtons = document.querySelector('[data-number]')
@@ -87,31 +85,31 @@ const calculator = new Calculator(
   currentOperandTextElement
 )
 
-numberButtons.forEach((button => {
+numberButtons.forEach((button) => {
   button.addEventListener("click", () => {
     calculator.appendNumber(button.innerText)
     calculator.updateDisplay()
   })
 })
 
-operationButtons.forEach((button => {
+operationButtons.forEach((button) => {
   button.addEventListener("click", () => {
-    calculator.chooseOperation(button.innerText);
-    calculator.updateDisplay();
-  })
-})
+    calculator.chooseOperation(button.innerText)
+    calculator.updateDisplay()
+  });
+});
 
 equalsButton.addEventListener("click", (button) => {
   calculator.compute();
   calculator.updateDisplay();
-});
+})
 
-allClearButton.addEventListener("click", (button) => {
-  calculator.clear();
-  calculator.updateDisplay();
-});
+allClearButton.addEventListener('click', (button) => {
+  calculator.clear()
+  calculator.updateDisplay()
+})
 
-deleteButton.addEventListener("click", (button) => {
-  calculator.delete();
-  calculator.updateDisplay();
-});
+deleteButton.addEventListener('click', function (button) {
+    calculator.delete();
+    calculator.updateDisplay();
+  })
